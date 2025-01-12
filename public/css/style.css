@@ -1,0 +1,376 @@
+/* Navbar Styles */
+
+body {
+  font-family: "Plus Jakarta Sans", serif;
+}
+
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.body-cont {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.navbar {
+    height: 5rem;
+    background-color: #f8f9fa; /* Light gray background */
+  }
+  
+  .fa-compass {
+    color: #fa424d;
+    font-size: 2rem;
+  }
+  
+  .nav-link {
+    color: #222222 !important;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #fa424d !important;
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: #343a40; /* Dark background */
+    padding: 2rem 1rem;
+    color: #ebebeb;
+  }
+  
+  .f-info {
+    text-align: center;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+  }
+  
+  .f-info-socials i {
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .f-info-socials i:hover {
+    color: #fa424d;
+  }
+  
+  .f-info-links a {
+    text-decoration: none;
+    color: #ebebeb;
+    margin: 0 1rem;
+    transition: color 0.3s;
+  }
+  
+  .f-info-links a:hover {
+    text-decoration: underline;
+    color: #fa424d;
+  }
+
+  .card {
+    border: none !important;
+    margin-bottom: 2rem;
+  }
+  
+  .card-image-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important ;
+  }
+
+  .card-body {
+    padding: 0 !important;
+  }
+
+  .card-text p {
+    font-weight: 400;
+  }
+
+
+  /* style.css */
+
+/* Card Hover Effect */
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.index-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-body p {
+  margin: 0.5rem 0;
+}
+
+.card-text b {
+  font-size: 1.2rem;
+}
+
+/* Text Centering */
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+/* Adjustments for the Listings */
+.card-description,
+.card-location {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.card-price {
+  font-weight: bold;
+  color: #fa424d; /* Red color for price */
+}
+
+/* New.ejs style */
+
+.new-form {
+  background-color: #f9f9f9;  /* Light gray background */
+  border-radius: 8px;  /* Rounded corners */
+  padding: 20px;  /* Add padding to make the content inside the form breathe */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+}
+
+.form-control {
+  background-color: #ffffff;  /* White background for form controls */
+}
+
+.btn-success {
+  background-color: #28a745;  /* Green button color */
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;  /* Darker green on hover */
+  border-color: #1e7e34;
+}
+
+/* this is prevoius styling of show.ejs -----------------------------------------*/
+/*show.ejs*/
+
+/* .show-card {
+  background-color: #00aaff5a;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.show-card .card-img-top {
+  height: 400px;
+  object-fit: cover;
+}
+
+.show-card .card-title {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.show-card .card-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: bolder;
+}
+
+.show-card .btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+.show-card .btn-block {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.show-card.shadow-lg {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.show-card:hover {
+  transform: translate(0px) !important;
+}
+  
+reviews
+.review-range {
+  width: 40%;
+}
+.review-range-div {
+  display: flex;
+  justify-content: left;
+}
+
+.all-reviews {
+  background-color: #f8f9fa !important;
+}
+
+.card-title {
+  font-size: 1.5rem !important;
+} */
+
+/*new styling of show.ejs ------------------------------------------------------*/
+/* Main card styling */
+.listing-card {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.listing-card .card-img-top {
+  height: 500px; /* Adjust as needed */
+  object-fit: cover;
+}
+
+.listing-card:hover {
+  /* transform: translateY(-5px); */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.listing-card .card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.listing-card .card-description {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.listing-card .price {
+  font-size: 1.5rem;
+}
+
+.listing-card .action-buttons .btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+.listing-card .btn-block {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+/* Review form */
+.review-form {
+  margin-top: 2rem;
+}
+
+.review-form .form-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.review-form textarea {
+  resize: none;
+  border-radius: 10px;
+}
+
+.review-form .form-range {
+  width: 50%;
+}
+
+/* Reviews Section */
+.reviews-section {
+  margin-top: 2rem;
+}
+
+.review-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.review-card .review-author {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.review-card .review-date {
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.review-card .review-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.review-card .review-rating {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+/*  ICONS */
+
+  /* Filters Container */
+  #filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Individual Filter Style */
+  .filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  .filter:hover {
+    opacity: 1;
+    cursor: pointer;
+    transform: translateY(-5px);
+  }
+  
+  /* Filter Icon Style */
+  .filter .icon {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .filter p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  /* Listing Card Style */
+  .listing-card {
+    transition: transform 0.3s ease;
+  }
+  
+  .listing-card:hover {
+    transform: scale(1.05);
+  }
+  

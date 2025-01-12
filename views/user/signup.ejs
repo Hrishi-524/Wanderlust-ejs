@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-8">
+        <h1><b>SignUp On Wanderlust</b></h1>
+        <br>
+        <form action="/signup" method="POST" class="form needs-validation" novalidate>
+            <label for="username" class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" id="username" required>
+            <div class="invalid-feedback">
+                Please enter your preferd username.
+            </div>
+            <div class="valid-feedback">
+                Looks Good!
+            </div>
+            <br>
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" id="email" required>
+            <div class="invalid-feedback">
+                Please enter valid email.
+            </div>
+            <div class="valid-feedback">
+                Looks Good!
+            </div>
+            <br>
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="password" required>
+            <div class="invalid-feedback">
+                Please enter your preferd password.
+            </div>
+            <div class="valid-feedback">
+                Looks Good!
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">SignUp</button>
+        </form>
+    </div>
+</div>

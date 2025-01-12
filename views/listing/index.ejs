@@ -1,0 +1,65 @@
+<div id="filters">
+  <div class="filter">
+    <div class="icon"><i class="fa-solid fa-fire"></i></div>
+    <p>Trending</p>
+  </div>
+  <div class="filter">
+    <div class="icon"><i class="fa-solid fa-bed"></i></div>
+    <p>Rooms</p>
+  </div>
+  <div class="filter">
+    <div class="icon"><i class="fa-solid fa-tractor"></i></div>
+    <p>Farms</p>
+  </div>
+  <div class="filter">
+    <div class="icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+    <p>Beachfront</p>
+  </div>
+  <div class="filter">
+    <div class="icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+    <p>Beachfront</p>
+  </div>
+  <div class="filter">
+    <div class="icon"><i class="fa-solid fa-tree"></i></div>
+    <p>Foerstcabin</p>
+  </div>
+  <div class="filter">
+    <div class="icon"><i class="fa-solid fa-cable-car"></i></div>
+    <p>Iconic</p>
+  </div>
+  <div class="filter">
+    <div class="icon"><i class="fa-solid fa-landmark-dome"></i></div>
+    <p>Historical</p>
+  </div><div class="filter">
+    <div class="icon"><i class="fa-solid fa-place-of-worship"></i></div>
+    <p>Temples</p>
+  </div>
+</div>
+<div class="container">
+  <!-- <h2 class="text-center mb-4">Exciting Places To Visit</h2> -->
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
+    <% for(let card of listings) { %>
+    <div class="col">
+      <a href="/listing/<%=card._id%>" class="text-decoration-none">
+        <div class="index-card card shadow-sm">
+          <img
+            src="<%=card.image.url%>"
+            class="card-img-top"
+            alt="<%=card.title%>"
+          />
+          <div class="card-body">
+            <p class="card-text card-title"><b><%=card.title%></b></p>
+            <p class="card-text card-description"><%=card.description%></p>
+            <p class="card-text card-price">
+              <strong>Price: </strong><%=card.price%>
+            </p>
+            <p class="card-text card-location">
+              <%=card.location%>, <%=card.country%>
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <% } %>
+  </div>
+</div>

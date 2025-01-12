@@ -1,0 +1,82 @@
+<form action="/listing" method="POST" class="container new-form needs-validation" novalidate enctype="multipart/form-data">
+  <div class="row">
+    <div class="col-8">
+      <div class="mb-3">
+        <label for="title" class="form-label" enx>Title</label>
+        <input 
+          type="text" 
+          name="listing[title]" 
+          class="form-control" 
+          id="title" 
+          required />
+        <div class="invalid-feedback">
+          Please enter a title for the listing.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea 
+          name="listing[description]" 
+          class="form-control" 
+          id="description" 
+          required>
+        </textarea>
+        <div class="invalid-feedback">
+          Please provide a description for the listing.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Image</label>
+        <input 
+          type="file" 
+          name="listing[image]" 
+          class="form-control" 
+          id="image" 
+          required />
+        <div class="invalid-feedback">
+          Please provide a valid image file
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input 
+          type="number" 
+          name="listing[price]" 
+          class="form-control" 
+          id="price" 
+          min="1" 
+          required />
+        <div class="invalid-feedback">
+          Please enter a valid price (greater than 0).
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mb-3 col-3">
+      <label for="location" class="form-label">Location</label>
+      <input 
+        type="text" 
+        name="listing[location]" 
+        class="form-control" 
+        id="location" 
+        required />
+      <div class="invalid-feedback">
+        Please provide a location.
+      </div>
+    </div>
+    <div class="mb-3 col-5">
+      <label for="country" class="form-label">Country</label>
+      <input 
+        type="text" 
+        name="listing[country]" 
+        class="form-control" 
+        id="country" 
+        required />
+      <div class="invalid-feedback">
+        Please provide a country name.
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>

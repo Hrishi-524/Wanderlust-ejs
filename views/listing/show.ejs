@@ -1,0 +1,217 @@
+<!-- <div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="show-card card shadow-lg">
+        <img
+          src="<%= card.image %>"
+          class="card-img-top img-fluid"
+          alt="Oops! Image can't be loaded"
+        />
+        <div class="card-body">
+          <h3 class="card-title font-weight-bolder"><%= card.title %></h3>
+          <p class="card-text text-muted mt-3"><%= card.description %></p>
+          <h4 class="text-success font-weight-bold mt-4">
+            Price: ₹<%= card.price.toLocaleString("en-IN") %>
+          </h4>
+          <p class="card-text text-muted">
+            <small>Location: <%= card.location %>, <%= card.country %></small>
+          </p>
+          <div class="mt-4 d-flex justify-content-between">
+            <a href="/listing/<%= card._id %>/edit" class="btn btn-primary">
+              Edit Listing
+            </a>
+            <form
+              action="/listing/<%= card._id %>?_method=DELETE"
+              method="POST"
+            >
+              <button class="btn btn-danger">Delete Listing</button>
+            </form>
+          </div>
+          <button class="btn btn-warning btn-block mt-4">
+            Book Now For ₹<%= card.price.toLocaleString("en-IN") %>
+          </button>
+          <div class="review-form">
+            <form
+              action="/listing/<%=card._id%>/reviews"
+              method="POST"
+              class="row new-form needs-validation"
+              novalidate
+            >
+              <label for="comment" class="form-label">Leave A Review</label>
+              <textarea
+                name="review[comment]"
+                id="comment"
+                cols="20"
+                rows="3"
+                class="form-control"
+                required
+                title="please write a review"
+              ></textarea>
+              <div class="invalid-feedback">Please fill out this field.</div>
+              <div class="valid-feedback">Looks good!</div>
+              <label for="customRange2" class="form-label">rating</label>
+              <div class="review-range-div">
+                <input
+                  type="range"
+                  name="review[rating]"
+                  class="review-range form-range"
+                  min="1"
+                  max="5"
+                  id="customRange2"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-outline-success">
+                Submit
+              </button>
+            </form>
+          </div>
+          <hr />
+          <div class="all-reviews">
+            <h3>Comments</h3>
+            <% for(let review of card.reviews ) { %>
+            <div class="card" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">David</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  <%= review.createdAt.toLocaleDateString("en-IN", { year:
+                  "numeric", month: "long", day: "numeric", }); %>
+                </h6>
+                <p class="card-text"><%= review.comment %></p>
+                <p class="card-text">rating: <%= review.rating %></p>
+              </div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="listing-card card shadow-lg">
+        <img
+          src="<%= card.image.url %>"
+          class="card-img-top img-fluid"
+          alt="Oops! Image can't be loaded"
+        />
+        <div class="card-body">
+          <h2 class="card-title"><%= card.title %></h2>
+          <h5 class="card-body">
+            Owner: <%=card.owner.username%>, contact: <%=card.owner.email%>
+          </h5>
+          <p class="card-description text-muted mt-3">
+            <%= card.description %>
+          </p>
+          <h4 class="price text-success font-weight-bold mt-4">
+            ₹<%= card.price.toLocaleString("en-IN") %>
+          </h4>
+          <p class="card-location text-muted">
+            <small>Location: <%= card.location %>, <%= card.country %></small>
+          </p>
+          <% if(currUser && currUser._id.equals(card.owner._id)) {%>
+          <div class="action-buttons mt-4 d-flex justify-content-between">
+            <a href="/listing/<%= card._id %>/edit" class="btn btn-primary">
+              Edit Listing
+            </a>
+            <form
+              action="/listing/<%= card._id %>?_method=DELETE"
+              method="POST"
+            >
+              <button class="btn btn-danger">Delete Listing</button>
+            </form>
+          </div>
+          <% } %>
+          <button class="btn btn-warning btn-block mt-4">
+            Book Now For ₹<%= card.price.toLocaleString("en-IN") %>
+          </button>
+
+          <!-- Review Form -->
+          <% if(currUser) { %>
+          <div class="review-form mt-5">
+            <h3 class="form-title">Leave A Review</h3>
+            <form
+              action="/listing/<%= card._id %>/reviews"
+              method="POST"
+              class="needs-validation"
+              novalidate
+            >
+              <label for="comment" class="form-label">Comment</label>
+              <textarea
+                name="review[comment]"
+                id="comment"
+                cols="30"
+                rows="4"
+                class="form-control mb-3"
+                placeholder="Write your review here..."
+                required
+              ></textarea>
+              <div class="invalid-feedback">Please write a comment.</div>
+              <fieldset class="starability-slot">
+                <legend>Rating:</legend>
+                <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+              </fieldset>
+              <br>
+              <!-- <label for="customRange2" class="form-label">Rating</label>
+              <input
+                type="range"
+                name="review[rating]"
+                class="form-range mb-3"
+                min="1"
+                max="5"
+                id="customRange2"
+                required
+              />
+              <div class="invalid-feedback">Please provide a rating.</div> -->
+
+              <button type="submit" class="btn btn-success">
+                Submit Review
+              </button>
+            </form>
+          </div>
+          <% } %>
+
+          <!-- Reviews Section -->
+          <hr class="my-4" />
+          <div class="reviews-section">
+            <h3>Comments</h3>
+            <% for (let review of card.reviews) { %>
+            <div class="review-card card my-3">
+              <div class="card-body">
+                <h5 class="review-author"><%= review.author.username %></h5>
+                <h6 class="review-date text-muted">
+                  <%= review.createdAt.toLocaleDateString("en-IN", { year:
+                  "numeric", month: "long", day: "numeric", }); %>
+                </h6>
+                <p class="review-text"><%= review.comment %></p>
+                <h6>Rating</h6>
+                <p class="starability-result" data-rating="<%=review.rating%>"></p>
+              </div>
+              <form
+                method="POST"
+                action="/listing/<%=card._id%>/reviews/<%=review._id%>?_method=DELETE"
+              >
+                <button type="submit" class="btn btn-outline-danger">
+                  Delete This Review
+                </button>
+              </form>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
