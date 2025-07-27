@@ -15,6 +15,6 @@ router.route("/")
 .post(isLoggedIn ,validateReview, wrapAsync(reviewController.createReview));//ADD REVIEW "/" {CREATE}
 
 router.route("/:reviewId")
-.delete(isLoggedIn,  isAuthor, reviewController.destroyReview);//DELETE REVIEW "/:reviewId" {DELETE}
+.delete(isLoggedIn, isAuthor, wrapAsync(reviewController.destroyReview));//DELETE REVIEW "/:reviewId" {DELETE}
 
 module.exports = router;

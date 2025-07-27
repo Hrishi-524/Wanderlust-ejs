@@ -18,7 +18,7 @@ const User = require("./models/user.js"); //model - User
 
 //mongoose
 const mongoose = require("mongoose");
-const dbUrl = process.env.ATLAS_URL;
+const dbUrl = process.env.NODE_ENV == "production" ? process.env.ATLAS_URL : "mongodb://localhost:27017/";
 async function main() {
   await mongoose.connect(dbUrl);
 }
@@ -141,6 +141,6 @@ app.all("*", (req, res, next) => {
 })
 
 app.use((err, req, res, next) => {
-  let {statuscode=500, message="someting went wrong"} = err;
-  res.status(500).render("error.ejs", {message});
+  let {statusCode=500, message="Something went wrong!"} = err;
+  res.status(statusCode).render("error.ejs", {message});
 })

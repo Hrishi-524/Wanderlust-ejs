@@ -4,7 +4,7 @@ module.exports.renderSignUpForm = (req, res) => {
     res.render("user/signup.ejs");
 }
 
-module.exports.signup= async (req, res) => {
+module.exports.signup= async (req, res, next) => {
     try {
         let {username, email, password} = req.body;
         const newUser = new User({email, username});
@@ -14,11 +14,11 @@ module.exports.signup= async (req, res) => {
             if(err) {
                 return next(err);
             }
-            req.flash("success", "welcome to wanderlust");
+            req.flash("success", "Welcome to Wanderlust!");
             res.redirect("/listing");
         });
     } catch (error) {
-        req.flash("error", "Username or Email is alredy registerd");
+        req.flash("error", "Username or Email is already registered!");
         res.redirect("/signup");
     }
 }
@@ -34,7 +34,7 @@ module.exports.login = async (req, res) => {
     res.redirect(redirectUrl);
 }
 
-module.exports.logout = (req, res) => {
+module.exports.logout = (req, res, next) => {
     req.logout((err) => {
         if(err) {
             return next(err);

@@ -43,20 +43,28 @@ module.exports.saveRedirectUrl = (req, res, next) => {
 
 module.exports.isOwner = async (req, res, next) => {
     let {id} = req.params;
-    let listing = await Listing.findById(id)
-    if(!listing.author.equals(res.locals.currUser._id)) {
-        req.flash("error", "this is not your listing ");
-        return res.redirect(`/listing/${id}`)
+    let listing = await Listing.findById(id);
+    if(!listing) {
+        req.flash("error", "Listing not found!");
+        return res.redirect("/listing");
+    }
+    if(!listing.owner.equals(res.locals.currUser._id)) {
+        req.flash("error", "You don't have permission to perform this action!");
+        return res.redirect(`/listing/${id}`);
     }
     next();
 }
 
 module.exports.isAuthor = async (req, res, next) => {
     let {id, reviewId} = req.params;
-    let review = await Review.findById(reviewId)
+    let review = await Review.findById(reviewId);
+    if(!review) {
+        req.flash("error", "Review not found!");
+        return res.redirect(`/listing/${id}`);
+    }
     if(!review.author.equals(res.locals.currUser._id)) {
-        req.flash("error", "this is not your review");
-        return res.redirect(`/listing/${id}`)
+        req.flash("error", "You don't have permission to delete this review!");
+        return res.redirect(`/listing/${id}`);
     }
     next();
 }
